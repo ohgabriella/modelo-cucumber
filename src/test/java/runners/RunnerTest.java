@@ -10,11 +10,9 @@ import static io.cucumber.junit.CucumberOptions.SnippetType.CAMELCASE;
 @CucumberOptions(
         tags = "@teste",
         features = "src/test/resources/features/test.feature",
-        glue = {"src.java.steps.StepsTest"},
+        glue = {"steps"},
         snippets = CAMELCASE,
-        plugin = {
-                "pretty"
-        })
+        plugin = {"pretty", "html:target/cucumber"})
 public class RunnerTest{
 
 }
