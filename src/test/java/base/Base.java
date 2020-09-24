@@ -31,8 +31,17 @@ public class Base {
                 .response();
     }
 
-    protected void requestGetWithId() {
-
+    protected void requestGetWithId(String path, String id, int codigo) {
+        response = RestAssured
+                .given()
+                .baseUri(URL_API)
+                .when()
+                .pathParam("id", id)
+                .get(path)
+                .then()
+                .statusCode(codigo)
+                .extract()
+                .response();
     }
 
     protected void logResponse() {
