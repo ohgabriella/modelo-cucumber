@@ -12,7 +12,8 @@ import static io.cucumber.junit.CucumberOptions.SnippetType.CAMELCASE;
         features = "src/test/resources/features/pokemon.feature",
         glue = {"steps.pokemon"},
         snippets = CAMELCASE,
-        plugin = {"pretty", "html:target/cucumber"})
+        plugin = {"pretty", "html:target/cucumber-reports"},
+        monochrome = true)
 public class PokemonRunner {
 
 }

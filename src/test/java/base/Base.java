@@ -2,14 +2,12 @@ package base;
 
 import io.restassured.RestAssured;
 import io.restassured.config.LogConfig;
+import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static io.restassured.RestAssured.config;
-import static io.restassured.RestAssured.given;
 
 public class Base {
 
@@ -21,6 +19,7 @@ public class Base {
     protected void requestGetWithParams(String path, Map<String, String> params, int codigo) {
         response = RestAssured
                 .given()
+                .filter(new RequestLoggingFilter())
                 .baseUri(URL_API)
                 .when()
                 .params(params)
@@ -34,6 +33,7 @@ public class Base {
     protected void requestGetWithId(String path, String id, int codigo) {
         response = RestAssured
                 .given()
+                .filter(new RequestLoggingFilter())
                 .baseUri(URL_API)
                 .when()
                 .pathParam("id", id)
@@ -47,6 +47,5 @@ public class Base {
     protected void logResponse() {
         System.out.println(response.prettyPrint());
     }
-
 
 }
