@@ -1,7 +1,7 @@
 #language: pt
 @AllCenarios
 Funcionalidade: Pesquisar pokemons
-
+  @teste
   Cenario: Listar todos os pokemons
     Dado que o usuario queira listar todos os pokemons
     Quando enviar uma requisicao a api para o path de pokemon

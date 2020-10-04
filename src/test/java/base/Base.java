@@ -12,7 +12,7 @@ import java.util.Map;
 public class Base {
 
     private static String URL_API = "https://pokeapi.co/api/v2/";
-    protected Map<String, String> params = new HashMap<String, String>();
+    protected Map<String, String> params = new HashMap<>();
     protected Response response;
 
 
@@ -46,6 +46,11 @@ public class Base {
 
     protected void logResponse() {
         System.out.println(response.prettyPrint());
+    }
+
+    protected int statusCode() {
+        System.out.println("Status code: " + response.getStatusCode());
+        return response.getStatusCode();
     }
 
 }

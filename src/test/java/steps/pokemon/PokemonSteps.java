@@ -4,6 +4,9 @@ import base.Base;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
+import org.junit.Assert;
+
+import static org.junit.Assert.assertEquals;
 
 public class PokemonSteps extends Base {
     String id;
@@ -36,11 +39,15 @@ public class PokemonSteps extends Base {
     @Entao("os pokemons foram listados")
     public void osPokemonsForamListados() {
         logResponse();
+        assertEquals(200, statusCode());
+
     }
 
     @Entao("o pokemon foi listado")
     public void oPokemonFoiListado() {
         logResponse();
+        assertEquals("39", response.path("base_experience").toString());
+        assertEquals("shield-dust", response.path("abilities.ability.name[0]").toString());
     }
 
     @Entao("o pokemon foi pesquisado por area")
