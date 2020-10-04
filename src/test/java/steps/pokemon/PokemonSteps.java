@@ -6,6 +6,10 @@ import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
 import org.junit.Assert;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import static org.junit.Assert.assertEquals;
 
 public class PokemonSteps extends Base {
@@ -39,7 +43,14 @@ public class PokemonSteps extends Base {
     @Entao("os pokemons foram listados")
     public void osPokemonsForamListados() {
         logResponse();
+
+        //validar o status code
         assertEquals(200, statusCode());
+
+        //validar o json response
+        List<Map<String, String>> jsonResponse = response.jsonPath().getList("results");
+        System.out.println("List" + jsonResponse);
+        assertEquals("bulbasaur", jsonResponse.get(0).get("name"));
 
     }
 
