@@ -22,8 +22,8 @@ no package java:
 
 4. criar a pasta "features" no resource
 5. criar os packages dos runners e dos steps (e do action se necessario)
-6. adicionar o -Dtestng.dtd.http=true na configuracao do run do testerunner (se for com tesng)
-7. adicionar o tesng.xml (se for com testng)
+6. adicionar o -Dtestng.dtd.http=true na configuracao do run do testerunner (se for com testng)
+7. adicionar o testng.xml (se for com testng)
 8. adicionar as configuracoes adicionais do cucumber no runner 
 
 ### como rodar o projeto?
